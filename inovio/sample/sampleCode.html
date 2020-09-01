@@ -1,0 +1,42 @@
+<div id="authorization">
+    $requestParams = [
+        'end_point'=> 'http://example.com',
+        'site_id' => 'USER SITE ID',
+        'req_username' => 'test@example.com',
+        'req_password' => 'Passw0rd!1'
+    ];
+
+    try {
+        $serviceConfig = new InovioServiceConfig($requestParams);
+        $processor = new InovioProcessor($serviceConfig);
+
+        $response = $processor
+            ->setMethodName('authorization')
+            ->setParams([
+                    'merch_acct_id'=> '100',
+                    'cust_fname'=> 'John',
+                    'cust_lname'=> 'Doe',
+                    'cust_email'=> 'email@example.com',
+                    'xtl_cust_id'=> 'testcust11',
+                    'xtl_order_id'=> 'abc123',
+                    'li_prod_id_1'=> '41241',
+                    'li_value_1'=> '2.99',
+                    'li_count_1'=> 1,
+                    'request_currency'=> 'USD',
+                    'bill_addr'=> '1 Main',
+                    'bill_addr_city'=> 'LosAngeles',
+                    'bill_addr_state'=> 'CA',
+                    'bill_addr_zip'=> '90001',
+                    'bill_addr_country'=> 'US',
+                    'pmt_numb'=> '5105105105105100',
+                    'pmt_key'=> '123',
+                    'pmt_expiry'=> '122020',
+                    'xtl_ip'=> '10.00.000.90'
+            ]) 
+            ->getResponse();            
+
+    } catch(Exception $e) {
+        echo $e->getMessage();
+    }
+    
+</div>
