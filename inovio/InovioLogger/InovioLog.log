@@ -1,0 +1,9 @@
+04.04.2017 11:51:18,  ERROR:: Array
+(
+    [curl response] => 
+    [curl error] => Could not resolve host: api.insssoviopay.com
+    [curl error no.] => 6
+    [http code] => 0
+)
+
+
