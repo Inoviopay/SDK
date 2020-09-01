@@ -1,0 +1,35 @@
+<configuration xmlns="http://logging.apache.org/log4php/">
+    <appender name="InovioWarnAppender" class="LoggerAppenderConsole" />
+    <appender name="InovioDebugAppender" class="LoggerAppenderConsole" />
+    <appender name="InovioTraceAppender" class="LoggerAppenderConsole" />
+    <appender name="InovioInfoAppender" class="LoggerAppenderRollingFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date{d.m.Y H:i:s}, %logger %-5level:: %msg%n%n" />
+        </layout>
+        <param name="file" value="../InovioLogger/InovioLog.log" />
+        <param name="maxFileSize" value="1KB" />
+        <param name="maxBackupIndex" value="2" />
+    </appender>
+
+    <root>
+        <level value="INFO" />
+        <appender_ref ref="InovioInfoAppender" />
+    </root>
+        
+    <root>
+        <level value="WARN" />
+        <appender_ref ref="InovioWarnAppender" />
+    </root>
+        
+    <root>
+        <level value="ERROR" />
+        <appender_ref ref="InovioErrorAppender" />
+    </root>
+        
+    <root>
+        <level value="DEBUG" />
+        <appender_ref ref="InovioDebugAppender" />
+    </root>
+    
+</configuration>
+   
